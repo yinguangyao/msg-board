@@ -3,23 +3,25 @@ const path = require('path'),
     CleanWebpackPlugin = require('clean-webpack-plugin'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 const config = {
-    "entry": {
-        "index": path.resolve(__dirname, "app/src/App.jsx"),
-        "vendor": [
-            "react",
-            "redux",
-            "react-redux",
-            "react-dom"
-        ]
-    },
+    "entry": [
+        'webpack-hot-middleware/client?reload=true',
+        "./app/src/App.jsx"
+        // "vendor": [
+        //     "react",
+        //     "redux",
+        //     "react-redux",
+        //     "react-dom"
+        // ]
+    ],
     "resolve": {
         "extensions": ['.js', '.jsx']
     },
     "output": {
         "path": path.resolve(__dirname, "app/build"),
         "filename": "js/[name].js",
-        // "publicPath": "/"
+        "publicPath": '/'
     },
     "module": {
         "loaders": [{
@@ -40,11 +42,13 @@ const config = {
             disable: false,
             allChunks: true
         }),
+        new webpack.HotModuleReplacementPlugin(),
         // new CleanWebpackPlugin(['./app/build']),
-        // new HtmlWebpackPlugin({
-        //     title: "留言板"
-        // }),
-        new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "js/bundle.js" })
+        new HtmlWebpackPlugin({
+            title: "留言板",
+            template: "index.html"
+        }),
+        // new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "js/bundle.js" })
     ]
 }
 module.exports = config

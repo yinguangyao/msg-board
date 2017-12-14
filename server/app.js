@@ -24,12 +24,14 @@ app.use(express.static(path.join(__dirname, '../app/build')));
 if (isDev) {
   const webpack = require('webpack');
   const webpackDevMiddleware = require('webpack-dev-middleware');
+  const webpackHotMiddleware = require("webpack-hot-middleware");
   const config = require('../webpack.dev.js');
   const compiler = webpack(config);
   app.use(webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath,
     hot: true
   }));
+  app.use(webpackHotMiddleware(compiler));
 }
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

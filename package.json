@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./server/app.js",
-    "start:dev": "set NODE_ENV=development && nodemon ./server/app.js --open",
-    "start:prod": "set NODE_ENV=production && nodemon ./server/app.js --open"
+    "build": "webpack --config webpack.dev.js",
+    "start:dev": "set NODE_ENV=development && nodemon ./server/app.js",
+    "start:prod": "set NODE_ENV=production && nodemon ./server/app.js"
   },
   "keywords": [
     "react",
