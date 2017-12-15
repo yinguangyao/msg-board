@@ -5,29 +5,28 @@ const path = require('path'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
-    "entry": [
-        'webpack-hot-middleware/client?reload=true',
-        "./app/src/App.jsx"
-        // "vendor": [
-        //     "react",
-        //     "redux",
-        //     "react-redux",
-        //     "react-dom"
-        // ]
-    ],
+    "entry": {
+        index: ["./app/src/App.jsx"],
+        "vendor": [
+            "react",
+            "redux",
+            "react-redux",
+            "react-dom"
+        ]
+    },
     "resolve": {
         "extensions": ['.js', '.jsx']
     },
     "output": {
         "path": path.resolve(__dirname, "app/build"),
         "filename": "js/[name].js",
-        "publicPath": '/'
+        "publicPath": 'http://localhost:3000/'
     },
     "module": {
         "loaders": [{
             "test": /\.(js|jsx)$/,
             "exclude": /node_modules/,
-            "loader": "babel-loader?cacheDirectory"
+            "loader": "babel-loader"
         }, {
             "test": /\.(sass|scss)$/,
             "use": ExtractTextPlugin.extract({
@@ -43,12 +42,11 @@ const config = {
             allChunks: true
         }),
         new webpack.HotModuleReplacementPlugin(),
-        // new CleanWebpackPlugin(['./app/build']),
         new HtmlWebpackPlugin({
             title: "留言板",
             template: "index.html"
         }),
-        // new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "js/bundle.js" })
+        new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "js/bundle.js" })
     ]
 }
 module.exports = config
