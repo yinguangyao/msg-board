@@ -33,11 +33,6 @@ const config = {
                 use: ['css-loader', 'sass-loader'],
                 fallback: 'style-loader'
             }),
-        }],
-        postLoaders: [{
-            test: /\.js/,
-            exclude: /(test|node_modules|bower_components)/,
-            loader: 'istanbul-instrumenter'
         }]
     },
     "plugins": [

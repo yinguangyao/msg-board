@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Fri Dec 15 2017 14:03:13 GMT+0800 (中国标准时间)
 
-module.exports = function (config) {
+module.exports =  function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -16,7 +16,6 @@ module.exports = function (config) {
     // list of files / patterns to load in the browser
     files: [
       'node_modules/babel-polyfill/dist/polyfill.js',
-      // 'node_modules/phantomjs-polyfill/bind-polyfill.js',
       'app/test/*.js'
     ],
 
@@ -71,7 +70,7 @@ module.exports = function (config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous

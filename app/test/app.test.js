@@ -1,7 +1,8 @@
-import { shallow } from 'enzyme'
+import { shallow  } from 'enzyme'
 import React from 'react'
-import App from '../src/redux/reducer/App'
+import App from '../src/redux/reducer/App.jsx'
 import { expect } from 'chai'
+
 describe("enzyme", () => {
     it("output 'hello world'", () => {
         let app = shallow(<App />)
