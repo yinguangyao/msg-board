@@ -3,5 +3,5 @@ const Enzyme = require('enzyme'),
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const context = require.context('./app', true, /test\.js$/);
+const context = require.context('./app/test', true, /test\.js$/);
 context.keys().forEach(context);
