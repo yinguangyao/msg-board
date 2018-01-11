@@ -1,6 +1,6 @@
 const path = require('path'),
     webpack = require('webpack'),
-    CleanWebpackPlugin = require('clean-webpack-plugin'),
+    // CleanWebpackPlugin = require('clean-webpack-plugin'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 

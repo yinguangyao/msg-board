@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Message from './container/Message'
 
 ReactDOM.render(
-    <h1>2222</h1>, 
+    <Message />, 
     document.getElementById('app')
 );
 if (module.hot) {
