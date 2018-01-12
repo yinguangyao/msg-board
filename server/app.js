@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
-const jade = require('jade');
+const ejs = require('ejs')
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 // window下需要用trim，不然永远不会相等
@@ -12,7 +12,7 @@ const app = express();
 // 将模板引擎设置为html，并指定读取模板文件的路径
 app.set('views', path.join(__dirname, '../app/build'));
 app.set('view engine', 'html');
-app.engine('html', jade.renderFile);
+app.engine('html', ejs.renderFile);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
